@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+// https://github.com/premg514/SECE-Reactjs
 export default function User() {
   const [products, setProducts] = useState([]);
 
@@ -14,6 +14,14 @@ export default function User() {
       }
     }
     exceuting_async_code();
+  }, []);
+
+  useEffect(function () {
+    console.log("started"); //Mount stage execution
+
+    return function () {
+      console.log("closed"); //Unmount stage execution 
+    };
   }, []);
 
   return (
