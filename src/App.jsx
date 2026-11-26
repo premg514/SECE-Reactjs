@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import Likes from "./components/Likes";
 import User from "./components/User";
+import Parent1 from "./prop-drilling/Parent1";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       {/* <Body /> */}
       {/* <Likes/> */}
       {/* <Footer /> */}
-      <User/>
+      {/* <User/> */}
+      <Parent1/>
     </>
   );
 }
