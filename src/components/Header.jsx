@@ -5,6 +5,7 @@ function Header() {
     <header>
       <h1>LOGO</h1>
       <nav>
+        <Link to="/important">Important</Link>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/pricing">Pricing</Link>

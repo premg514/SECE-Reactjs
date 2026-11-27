@@ -8,20 +8,37 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Fruits from "./pages/Fruits";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import Important from "./pages/Important";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/product/:id" element={<ProductDetails/>}  />
-          <Route path="/fruits/:fruitname"  element={<Fruits/>}/>
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute>
+              <Products />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/fruits/:fruitname" element={<Fruits />} />
+        <Route
+          path="/important"
+          element={
+            <ProtectedRoute>
+              <Important />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
