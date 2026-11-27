@@ -1,22 +1,17 @@
-import './header.css'
-function Header({logo}){
-    return (
-        <header>
-        <h1>{logo}</h1>
-        <nav>
-          <a href=""></a>
-          <a href=""></a>
-          <a href=""></a>
-        </nav>
-      </header>
-    )
+import { Link } from "react-router-dom";
+import "./header.css";
+function Header() {
+  return (
+    <header>
+      <h1>LOGO</h1>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/pricing">Pricing</Link>
+        <Link to="/signup">Signup</Link>
+      </nav>
+    </header>
+  );
 }
-export default Header
+export default Header;
 
-
-
-
-function sun(a,b){
-    return a+b
-}
-sun(1,2)

@@ -1,25 +1,24 @@
-import { useState } from "react";
-
 import "./App.css";
 import Header from "./components/Header";
-import Body from "./components/Body";
-import Footer from "./components/Footer";
-import Likes from "./components/Likes";
-import User from "./components/User";
-import Parent1 from "./prop-drilling/Parent1";
+import Home from "./pages/Home";
+import Pricing from "./pages/Pricing";
+import About from "./pages/About";
+import Signup from "./pages/Signup";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Fruits from "./pages/Fruits";
 
 function App() {
   return (
-    <>
-      {/* <Header logo={"Apple"} />
-      <Header logo={"Samsung"} />
-      <Header logo={"MI"} /> */}
-      {/* <Body /> */}
-      {/* <Likes/> */}
-      {/* <Footer /> */}
-      {/* <User/> */}
-      <Parent1/>
-    </>
+    <BrowserRouter>
+      <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/fruits/:fruitname"  element={<Fruits/>}/>
+        </Routes>
+    </BrowserRouter>
   );
 }
 
