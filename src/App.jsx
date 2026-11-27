@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Fruits from "./pages/Fruits";
 import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetails/>}  />
           <Route path="/fruits/:fruitname"  element={<Fruits/>}/>
         </Routes>
     </BrowserRouter>

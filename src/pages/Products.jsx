@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { OrbitProgress } from "react-loading-indicators";
+import "./Products.css";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -9,32 +11,34 @@ export default function Products() {
     async function fetchProducts() {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
+
         const data = await response.json();
         setProducts(data);
       } catch (e) {
         console.error(e);
       }
     }
+
     fetchProducts();
   }, []);
-  console.log(products);
+
   return (
-    <div>
-      <h1>Products</h1>
+    <div className="products-container">
+      <h1>Our Products</h1>
+
       {products.length > 0 ? (
-        products.map(function (product) {
-          return <ProductCard product={product} />;
-        })
+        <div className="products-grid">
+          {products.map(function (product) {
+            return (
+              <Link to={`/product/${product.id}`}>
+                <ProductCard key={product.id} product={product} />
+              </Link>
+            );
+          })}
+        </div>
       ) : (
-        <OrbitProgress color="#32cd32" size="medium" text="" textColor="" />
+        <OrbitProgress color="#32cd32" size="medium" />
       )}
     </div>
   );
 }
-
-// Step1: make a API call
-// step2: store the API response in state variable
-// Step3: using map method passing the each product data into child component as  a prop
-
-// const result = false
-// result ? console.log("success"): console.log("failure")
